@@ -1,4 +1,7 @@
 package com.passwordmanagement.User.data.repository;
 
-public interface UserRepository{
+import com.passwordmanagement.User.data.model.User;
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+public interface UserRepository extends MongoRepository<User, String>{
 }
