@@ -8,7 +8,9 @@ import com.passwordmanagement.User.dto.response.CreateUserResponse;
 import com.passwordmanagement.User.dto.response.DeleteUserResponse;
 import com.passwordmanagement.User.dto.response.UpdateUserResponse;
 import com.passwordmanagement.User.dto.response.UserLoginResponse;
+import org.springframework.stereotype.Service;
 
+@Service
 public interface UserService{
 
 CreateUserResponse createUser(CreateUserRequest createUserRequest);
