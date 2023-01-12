@@ -6,7 +6,8 @@ public class PasswordValidator{
         return email.contains("@");
     }
 
-    public  static boolean isValidPassword(String password){
-        return  password.matches("[a-zA-Z0-9(@#$!_)]{12,20}");
+
+    public static boolean isValidPassword(String password){
+        return password.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*_?&])[A-Za-z\\d@$!%*_?&]{8,20}$");
     }
 }
