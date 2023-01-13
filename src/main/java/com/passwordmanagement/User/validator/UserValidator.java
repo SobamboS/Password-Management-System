@@ -2,9 +2,8 @@ package com.passwordmanagement.User.validator;
 
 public class UserValidator{
 
-    static boolean isValidEmail(String email){
-        return email.matches("^[a-zA-Z\\d_+&*-] + (?:\\\\.[a-zA-Z\\d_+&*-] " +
-                "+ )*@(?:[a-zA-Z\\d-]+\\\\.) + [a-zA-Z]{2,7}");
+   public static boolean isValidEmail(String email){
+        return email.contains("@");
 
         //return email.contains("@");
     }
