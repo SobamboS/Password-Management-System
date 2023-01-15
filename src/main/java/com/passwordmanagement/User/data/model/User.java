@@ -16,7 +16,7 @@ public class User{
     private String userId;
 
     @NotBlank(message="This field cannot be empty")
-    @Email(message="This field requires a valid email address")
+   // @Email(message="This field requires a valid email address")
     private String email;
 
     private String password;

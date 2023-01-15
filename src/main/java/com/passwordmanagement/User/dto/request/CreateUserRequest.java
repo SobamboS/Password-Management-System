@@ -7,6 +7,6 @@ import lombok.Data;
 public class CreateUserRequest{
     private String email;
 
-@Pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*_?&])[A-Za-z\\d@$!%*_?&]{8,20}$")
+  // @Pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*_?&])[A-Za-z\\d@$!%*_?&]{8,20}$")
     private String password;
 }

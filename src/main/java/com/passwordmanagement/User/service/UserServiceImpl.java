@@ -10,6 +10,7 @@ import com.passwordmanagement.User.dto.response.CreateUserResponse;
 import com.passwordmanagement.User.dto.response.DeleteUserResponse;
 import com.passwordmanagement.User.dto.response.UpdateUserResponse;
 import com.passwordmanagement.User.dto.response.UserLoginResponse;
+import com.passwordmanagement.User.exception.CreateUserException;
 import com.passwordmanagement.User.validator.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,11 +24,10 @@ public class UserServiceImpl implements UserService{
         User user=new User();
         user.setEmail(createUserRequest.getEmail());
         user.setPassword(createUserRequest.getPassword());
-        if(!UserValidator.isValidEmail(createUserRequest.getEmail())){
-            userRepository.save(user);
-        return new CreateUserResponse("Valid");
-        }else
-            return new CreateUserResponse("Invalid email");
+        if(!UserValidator.isValidEmail(createUserRequest.getEmail())) throw new CreateUserException(String.format("%s is invalid",createUserRequest.getEmail()));
+        if(!UserValidator.isValidPassword(createUserRequest.getPassword())) throw  new CreateUserException((String.format("%s is not strong enough",createUserRequest.getPassword())));
+        userRepository.save(user);
+        return new CreateUserResponse("Registration Successful");
     }
 
     @Override
